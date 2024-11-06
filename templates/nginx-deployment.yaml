@@ -6,7 +6,7 @@ metadata:
   labels:
     app: nginx
 spec:
-  replicas: 1
+  replicas: {{ .Values.nginx.replicaCount }}
   selector:
     matchLabels:
       app: nginx
@@ -16,15 +16,15 @@ spec:
         app: nginx
     spec:
       nodeSelector:
-        nodegroup: app  # Ensures this pod only runs on nodes labeled with role=app
+        nodegroup: app
       containers:
       - name: nginx
-        image: 992382545251.dkr.ecr.us-east-1.amazonaws.com/gal-alon-app-repo-ga:nginx-image-latest
+        image: "{{ .Values.nginx.image }}:nginx-image-{{ .Values.imageVersion }}"
         ports:
           - containerPort: 80
         volumeMounts:
           - name: nginx-config
-            mountPath: /etc/nginx/nginx.conf  # Path in the container
+            mountPath: /etc/nginx/nginx.conf
             subPath: nginx.conf
       volumes:
       - name: nginx-config
