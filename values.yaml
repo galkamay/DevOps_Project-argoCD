@@ -1,4 +1,4 @@
-imageVersion: "latest" 
+imageVersion: "37-37"
 
 nginx:
   image: "992382545251.dkr.ecr.us-east-1.amazonaws.com/gal-alon-app-repo-ga"
