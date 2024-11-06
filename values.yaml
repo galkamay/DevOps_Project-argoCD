@@ -1,0 +1,9 @@
+imageVersion: "latest" 
+
+nginx:
+  image: "992382545251.dkr.ecr.us-east-1.amazonaws.com/gal-alon-app-repo-ga"
+  replicaCount: 1
+
+wsgi:
+  image: "992382545251.dkr.ecr.us-east-1.amazonaws.com/gal-alon-app-repo-ga"
+  replicaCount: 1
